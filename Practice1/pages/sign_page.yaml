@@ -1,0 +1,8 @@
+- locator: //*[@text='外出打卡']
+  action: find_click
+
+- locator: //*[contains(@text,'次外出')]
+  action: find_click
+
+- locator: //*[@text='外出打卡成功']
+  action: find
