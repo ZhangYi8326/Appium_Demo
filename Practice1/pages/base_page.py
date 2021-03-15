@@ -33,13 +33,16 @@ class BasePage:
                                  'scrollIntoView(new UiSelector().'
                                  f'text("{text}").instance(0));').click()
 
-    def parse_action(self, path):
+    def parse_action(self, path, fun_name):
         with open(path, "r", encoding="utf-8") as f:
-            steps: list[dict] = yaml.safe_load(f)
+            function = yaml.safe_load(f)
+            steps: list[dict] = function(fun_name)
         for step in steps:
             if step["action"] == "find_click":
                 self.find_click(step["locator"])
             elif step["action"] == "find":
                 self.find(step["locator"])
+            elif step["action"] == "find_sendkeys":
+                self.find(step["locator"]).send_keys(step["text"])
 
 

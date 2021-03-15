@@ -8,10 +8,19 @@
 import time
 from Practice1.pages.work_page import WorkPage
 from Practice1.pages.base_page import BasePage
+from Practice1.pages.addresslist_page import AdressListPage
 
 
 class InformationPage(BasePage):
 
     def goto_work_page(self):
-        self.parse_action(r"../pages/information_page.yaml")
+        # 进入到工作台页面
+        self.parse_action("../pages/information_page.yaml", "goto_work_page")
         return WorkPage(self.driver)
+
+    def got_addresslist(self):
+        # 进入到通讯录页面
+        self.parse_action("../pages/information_page.yaml", "goto_addresslist")
+        return AdressListPage(self.driver)
+
+
