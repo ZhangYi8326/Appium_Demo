@@ -18,7 +18,7 @@ class InformationPage(BasePage):
         self.parse_action("../pages/information_page.yaml", "goto_work_page")
         return WorkPage(self.driver)
 
-    def got_addresslist(self):
+    def goto_addresslist(self):
         # 进入到通讯录页面
         self.parse_action("../pages/information_page.yaml", "goto_addresslist")
         return AdressListPage(self.driver)

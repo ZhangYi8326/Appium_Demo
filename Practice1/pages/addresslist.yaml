@@ -1,3 +1,4 @@
 click_addcontact:
-  - locator: //*[@text='添加成员']
-    action: find_click
+  - text: 添加成员
+    by: xpath
+    action: swip

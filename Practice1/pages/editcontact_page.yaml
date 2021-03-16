@@ -1,12 +1,19 @@
 edit_contact:
   - locator: //*[contains(@text,'姓名')]/../*[@text='必填']
     action: find_sendkeys
-    text: B004
+    text: ${name}
+    by: xpath
 
   - locator: //*[contains(@text, '手机')]/..//*[@text='必填']
     action: find_sendkeys
-    text: 13900000011
+    text: ${phone}
+    by: xpath
+
+  - locator: //*[@text='保存']
+    action: find_click
+    by: xpath
 
 verify_ok:
   - locator: //*[@text='添加成功']
+    by: xpath
     action: find_sendkeys

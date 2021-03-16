@@ -14,6 +14,8 @@ class TestContact:
         self.app = App()
 
     def test_addcontact(self):
-        editpage = self.app.goto_main().got_addresslist().click_addcontact().addcontact_menual()
-        editpage.edit_contact()
+        name = "B006"
+        phone = "13099000991"
+        editpage = self.app.goto_main().goto_addresslist().click_addcontact().addcontact_menual()
+        editpage.edit_contact(name, phone)
         editpage.verify_ok()

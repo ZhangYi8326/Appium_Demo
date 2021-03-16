@@ -15,4 +15,4 @@ class AddContactPage(BasePage):
     def addcontact_menual(self):
         # 点击手动输入添加
         self.parse_action(r"../pages/addcontact_page.yaml", "addcontact_menual")
-        return EditContactPage()
+        return EditContactPage(self.driver)

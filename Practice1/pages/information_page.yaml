@@ -1,7 +1,9 @@
 goto_work_page:
   - locator: //*[@text='工作台']
     action: find_click
+    by: xpath
 
 goto_addresslist:
   - locator: //*[@text='通讯录']
     action: find_click
+    by: xpath

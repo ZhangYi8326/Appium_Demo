@@ -11,11 +11,13 @@ from Practice1.pages.base_page import BasePage
 
 class EditContactPage(BasePage):
 
-    def edit_contact(self):
+    def edit_contact(self, name, phone):
         """
         编辑成员
         :return:
         """
+        self._params["name"] = name
+        self._params["phone"] = phone
         self.parse_action("../pages/editcontact_page.yaml", "edit_contact")
 
     def verify_ok(self):
