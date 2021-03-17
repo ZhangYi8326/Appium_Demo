@@ -5,7 +5,8 @@
 @File ：base_page.py
 @Description：
 """
-
+import sys
+import allure
 import yaml
 import json
 import logging
@@ -20,9 +21,10 @@ logging.basicConfig(level=logging.INFO,
                     # 打印日志的时间
                     datefmt='%a, %d, %b, %Y, %H:%M:%S',
                     # 日志文件存放的目录(目录必须存在)及日志文件名
-                    filename='report.log',
+                    # filename='report.log',
+                    stream=sys.stderr
                     # 打开日志文件的方式
-                    filemode='w'
+                    # filemode='w'
                     )
 
 
@@ -47,7 +49,13 @@ class BasePage:
             self._error_num = 0
             return element
         except Exception as e:
+            self.log.error("未找到元素", e)
             # 处理黑名单逻辑
+
+            # 错误时截图处理
+            self.driver.get_screenshot_as_file("tmp.png")
+            allure.attach.file("tmp.png", attachment_type=allure.attachment_type.PNG)
+
             # 设置最大查找次数
             if self._error_num > self._max_num:
                 self._error_num = 0
@@ -65,6 +73,7 @@ class BasePage:
             raise e
 
     def find(self, by, locator):
+        self.log.info(f"find: by={by}, locator = {locator}")
         return self.driver.find_element(by, locator)
 
     # 滑动操作
