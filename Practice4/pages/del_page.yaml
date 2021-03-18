@@ -1,0 +1,8 @@
+del_member:
+  - by: xpath
+    locator: //*[@text='删除成员']
+    action: find_click
+
+  - by: id
+    locator: com.tencent.wework:id/bpc
+    action: find_click

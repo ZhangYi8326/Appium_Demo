@@ -1,0 +1,3 @@
+goto_deatil:
+  - text: ${member}
+    action: swip
