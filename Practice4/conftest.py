@@ -19,5 +19,5 @@ def get_log():
     log_format = logging.Formatter('%(filename)s[line:%(lineno)d]%(levelname)s%(message).500s')
     console = logging.StreamHandler()  # 向控制台输出日志
     console.setFormatter(log_format)
-    log_z.addHandler(console)
+    # log_z.addHandler(console)
     return log_z
