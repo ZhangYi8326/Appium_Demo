@@ -6,4 +6,8 @@
 
 import pytest
 
+from Practice4.webhook import WebHook
+
 pytest.main(["-s", "-q", "--alluredir=./result/5"])
+WebHook().web_hook()
+
